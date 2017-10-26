@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterForm renders correctly 1`] = `
+<div>
+  <span
+    className="filter"
+  >
+    Filter results:
+  </span>
+  <br />
+  <label>
+    Minimum Seats
+  </label>
+  <input
+    onChange={[Function]}
+    type="number"
+    value={2}
+  />
+  <br />
+  <label>
+    Maximum Seats
+  </label>
+  <input
+    onChange={[Function]}
+    type="number"
+    value={5}
+  />
+</div>
+`;

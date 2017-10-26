@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterForm from '../filter_form';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 
 const setup = () => {
@@ -31,5 +32,9 @@ describe('FilterForm', () => {
   test('updates filter onChange', () => {
     minSeatFilter.props().onChange({currentTarget: 3});
     expect(props.updateFilter.mock.calls.length).toBe(1);
+  });
+
+  test ('renders correctly', () => {
+    expect(toJson(filterFormWrapper)).toMatchSnapshot();
   });
 });
