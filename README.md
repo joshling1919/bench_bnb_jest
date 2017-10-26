@@ -31,8 +31,10 @@ Useful Docs:
 
 ## Testing React Components
 
-### Simple Component
+### Container-less Component
 
-### Connected Component
+### Container Component
+- If the container component's child uses `withRouter`, then we'll need
+to wrap the container component with a Router when mounting it.
 
 ## Snapshot Testing

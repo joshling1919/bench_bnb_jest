@@ -1,8 +1,9 @@
 import React from 'react';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import ReviewFormContainer from '../review_form_container';
+import { HashRouter } from 'react-router-dom';
 
 const bench = { id: 1, description: "great!", lat: 1.2, lng: 3.4 };
 const middlewares = [ thunk ];
@@ -16,9 +17,12 @@ describe('review form container', () => {
 
   describe('creating a new review', () => {
     beforeEach(() => {
-      reviewFormWrapper = shallow(
-        <ReviewFormContainer store={testStore} />
+      reviewFormWrapper = mount(
+        <HashRouter>
+          <ReviewFormContainer store={testStore} />
+        </HashRouter>
       ).find('ReviewForm');
+      
       console.log(reviewFormWrapper.debug());
 
       reviewRating = reviewFormWrapper.find('input').filterWhere(input => (
