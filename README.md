@@ -1,8 +1,6 @@
 # BenchBnB- Frontend Tests
 
----
-
-Useful Docs:
+## Useful Docs
 * http://redux.js.org/docs/recipes/WritingTests.html
 * https://facebook.github.io/jest/docs/en/expect.html
 * http://airbnb.io/enzyme/docs/api/
