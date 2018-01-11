@@ -3,9 +3,15 @@
 ## Useful Docs
 * http://redux.js.org/docs/recipes/WritingTests.html
 * https://facebook.github.io/jest/docs/en/expect.html
-* http://airbnb.io/enzyme/docs/api/
-* https://facebook.github.io/jest/docs/en/mock-functions.html
-* https://www.npmjs.com/package/react-mock-router
+
+---
+
+## Agenda 
+- Set up
+- Practice
+- Reducers
+- Action Creators
+- Async Action Creators
 
 ---
 
@@ -17,28 +23,31 @@
 
 ---
 
-## Jest and Enzyme
+## Jest
 - Jest
   - Facebook's JS testing framework
   - Great for React
   - Simple mocking of components, libraries, etc.
-- Enzyme
-  - Library developed by Airbnb for testing React components
-  - jQuery-esque API
-  - Recommended by Jest for component testing
 
 ---
 
 ## Setup
-- `npm install --save-dev jest enzyme`
+- `npm install --save-dev jest`
 - `npm install --save-dev redux-mock-store`
-- `npm install --save-dev react-test-renderer@15 enzyme-adapter-react-15`
-- Add a `setUpTest.js file`
-- Tell jest where to look for your `setUpTest.js` file in your `package.json`
 - Edit `package.json` to run jest when you run `npm test`
 - Add `.babelrc` file
-- `npm install --save-dev react-mock-router`
-- `npm install --save-dev enzyme-to-json`
+
+---
+
+## .babelrc file
+```
+{
+  "presets": [
+    "es2015",
+    "react"
+  ]
+}
+```
 
 ---
 
