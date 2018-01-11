@@ -57,6 +57,13 @@
 
 ---
 
+## Practice
+- Set up a `__tests__` folder in `practice`
+- Import functions that we want to test 
+- Write tests
+
+---
+
 ## Testing Redux
 - Relatively simple
 - Pure functions
@@ -89,6 +96,7 @@ test('should initialize with an empty object as the default state', () => {
 
 ## Reducers Part II
 - use testUtil file
+- If you finish early, write tests for `filters_reducer.js` for extra practice!
 
 ```js
 describe('handling the RECEIVE_BENCHES action', () => {
@@ -129,6 +137,30 @@ test('should not modify the old state', () => {
   let oldState = { 1: 'oldState' };
   BenchesReducer(oldState, action);
   expect(oldState).toEqual({ 1: 'oldState' });
+});
+```
+---
+# Action Creators
+```js
+describe('actions', () => {
+  test('receiveBenches should create an action to receive benches', () => {
+    // refer to https://redux.js.org/docs/recipes/WritingTests.html 
+  })
+});
+```
+---
+
+## Action Creators Solution
+```js
+describe('actions', () => {
+  test('receiveBenches should create an action to receive benches', () => {
+    const expectedAction = {
+      type: actions.RECEIVE_BENCHES,
+      benches: testBenches,
+    };
+
+    expect(actions.receiveBenches(testBenches)).toEqual(expectedAction);
+  })
 });
 ```
 ---
@@ -178,162 +210,16 @@ test('fetchBenches creates RECEIVE_BENCHES after fetching benches', () => {
 ```
 ---
 
-## Testing React Components
-- More difficult, not similar to rspec :(
-  - [`Enzyme`](http://airbnb.io/enzyme/docs/api/) to the rescue!
-- What to test:
-  - Presentational & container components
-  - Presence of other components, links, input fields, props
-  - Interaction with site (clicking, typing, etc)
-- Dependencies to be mocked
-  - Action creators, other components
-  - Create test instances of reducer, store, default state
-- Shallow vs. Full DOM rendering
-
----
-
-## Container-less Component
-```js
-test('minSeating filter defaults to the passed in props of minSeating', () => {
-  // your code here
-});
-
-test('updates filter onChange', () => {
-  // Your code here
-});
-```
-
----
-
-## Container-less Component (Solution)
-```js
-test('minSeating filter defaults to the passed in props of minSeating', () => {
-  expect(minSeatFilter.props().value)
-    .toEqual(2);
-});
-
-test('updates filter onChange', () => {
-  minSeatFilter.props().onChange({currentTarget: 3});
-  expect(props.updateFilter.mock.calls.length).toBe(1);
-});
-```
-
----
-
-## Container Component
-- If the container component's child uses `withRouter`, then we'll need
-to wrap the container component with a Router when mounting it.
-
-```js
-test('correctly maps dispatch to props', () => {
-  // Your code here
-});
-
-test('pre-fills rating field to 5', () => {
-  // Your code here
-});
-
-test('pre-fills comment field with empty string', () => {
-  // Your code here
-});
-
-test('navigates to bench show on button click', () => {
- // Your code here
-});
-```
-
----
-
-## Container Component (Solution)
-```js
-test('correctly maps dispatch to props', () => {
-  expect(reviewFormWrapper.props().createReview).toBeDefined();
-});
-
-test('pre-fills rating field to 5', () => {
-  expect(reviewRating.props().value).toEqual(5);
-});
-
-test('pre-fills comment field with empty string', () => {
-  expect(reviewBody.props().value).toEqual('');
-});
-
-test('navigates to bench show on button click', () => {
-  benchShowButton.simulate('click');
-  expect(push).toBeCalledWith('/benches/undefined');
-});
-```
-
----
-
-## Snapshot Testing
-- Automates the updating of tests
-- Saves a snapshot of how the component renders
-- [Snapshot Testing](https://www.youtube.com/watch?v=HAuXJVI_bUs)
-
----
-
-## Snapshot Testing
-- Refer to enzyme-to-json docs
-
-```js
-test ('renders correctly', () => {
-  // Snapshot testing here
-});
-```
-
----
-
-## Snapshot Testing (Solution)
-
-```js
-test ('renders correctly', () => {
-  expect(toJson(filterFormWrapper)).toMatchSnapshot();
-});
-```
-
----
-
-## Snapshot
-
-```
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`FilterForm renders correctly 1`] = `
-<div>
-  <span
-    className="filter"
-  >
-    Filter results:
-  </span>
-  <br />
-  <label>
-    Minimum Seats
-  </label>
-  <input
-    onChange={[Function]}
-    type="number"
-    value={2}
-  />
-  <br />
-  <label>
-    Maximum Seats
-  </label>
-  <input
-    onChange={[Function]}
-    type="number"
-    value={5}
-  />
-</div>
-`;
-```
-
----
-
 ## Where To Go From Here
 - Add tests to your FSP
 - Add tests to JS project
-- Add Jest and Enzyme to your resume
+- Add Jest to your resume
 - Add tests whenever possible on coding challenges!
+---
+
+## Additional Resources
+- Part II next Wednesday from 1:30 - 3:30 (optional)
+- https://github.com/appacademy/a06-prep/tree/master/solution/frontend/__tests__
+- https://redux.js.org/docs/recipes/WritingTests.html
 
 ---
