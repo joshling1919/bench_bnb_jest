@@ -7,6 +7,14 @@
 
 ---
 
+## Today's Goals
+
+* Learn what Jest and Enzyme are
+* Get aquainted with docs
+* Lay a foundation for more independent testing
+
+---
+
 ## Agenda
 
 * Set up
@@ -253,7 +261,6 @@ test("fetchBenches creates RECEIVE_BENCHES after fetching benches", () => {
 
 ## Additional Resources
 
-* Part II next Wednesday from 1:30 - 3:30 (optional)
 * https://github.com/appacademy/a06-prep/tree/master/solution/frontend/__tests__
 * https://redux.js.org/docs/recipes/WritingTests.html
 
